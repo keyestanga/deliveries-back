@@ -31,5 +31,5 @@ users.userRoutes(app);
 
 //executem el servidor per escoltar en el puerto 3000 i la ip localhost---->127.0.0.1
 app.listen(3000,'localhost',()=>{
-    console.log('Server listening on port %s',3000);
+    console.log(' 🌐 Server listening on port %s',3000);
 })
