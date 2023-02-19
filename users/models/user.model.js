@@ -31,7 +31,7 @@ const Users = mongoose.model('users',usersSchema,'users');
 exports.loginUser = (info)=>{
 
     return new Promise((resolve,reject)=>{
-
+        //FIXME: añadido findOne
         Users.findOne({$or:[{email:info.eou},{username:info.eou}],password:info.password},{password:0}).exec((error,result)=>{
             
             if(error){
@@ -41,7 +41,7 @@ exports.loginUser = (info)=>{
             }
             
             if(result){
-                
+                //FIXME: añadida respuesta de la consulta en caso afirmativo
                 console.log(result);
                 resolve(result);
             }else{
@@ -62,7 +62,7 @@ exports.registerUser = (user)=>{
     try{
 
         const usr = new Users(user);
-
+        //FIXME: guardar usuario en base de datos
         return usr.save().catch(error=>error.message);
 
     }catch(error){
@@ -75,8 +75,8 @@ exports.registerUser = (user)=>{
 exports.updateUserPic = (userid,picname)=>{
 
     return new Promise((resolve,reject)=>{
-
-        findOneAndUpdate({_id:userid},{$set:{user_image:picname}},{new:true}).exec((error,user)=>{
+        //FIXME: añadido Coleccion USers antes de la fucnion y parametros userid en   id: y picname en   user_image:
+        Users.findOneAndUpdate({_id:userid},{$set:{user_image:picname}},{new:true}).exec((error,user)=>{
             
             if(error){
                 reject(error.message);
@@ -85,7 +85,8 @@ exports.updateUserPic = (userid,picname)=>{
             }
             
             if(user){
-                
+                //FIXME: añadida resolucion afirtmativa de consulta de modificacion
+                 resolve(user);
             }else{
                 resolve(undefined);
             }

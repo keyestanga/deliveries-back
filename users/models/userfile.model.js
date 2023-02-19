@@ -5,6 +5,7 @@ const path = require('path');
 
 
 //let assetsdir = path.join(__dirname,'../../../front_end/src/assets/image');
+//FIXME: hay que poner la ruta correcta del frontend
 let assetsdir = path.join(__dirname,'../../../rlp/src/assets/image')
 
 
